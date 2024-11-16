@@ -88,18 +88,22 @@ export interface DockIconProps {
 const DockIcon = ({
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
-  mouseX = useMotionValue(Infinity), // Ensure mouseX always has a value
+  mouseX,
   className,
   children,
   ...props
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const localMouseX = useMotionValue(Infinity); // Always call the hook
-  const distanceCalc = useTransform(mouseX || localMouseX, (val: number) => {
+  // Always call useMotionValue unconditionally
+  const localMouseX = useMotionValue(Infinity);
+  const effectiveMouseX = mouseX || localMouseX;
+
+  const distanceCalc = useTransform(effectiveMouseX, (val: number) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
+
   // Transform width based on distance
   const widthSync = useTransform(
     distanceCalc,
@@ -128,7 +132,6 @@ const DockIcon = ({
     </motion.div>
   );
 };
-
 DockIcon.displayName = "DockIcon";
 
 // Export Dock and DockIcon

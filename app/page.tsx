@@ -173,23 +173,24 @@ const IndexPage = () => {
           {/* BoxReveal for Name */}
           <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
             <p className="text-3xl md:text-4xl lg:text-[3.5rem] font-bold text-white">
-              Sri Datta Y
+              <SparklesText text="Sri Datta Y" />
             </p>
           </BoxReveal>
 
           {/* BoxReveal for Description */}
           <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
             <p className="text-white text-lg leading-relaxed">
-              Hello! I'm Sri Datta Y, currently pursuing a Master's in Data
-              Science at Stony Brook University. My expertise spans Data
-              Engineering, Full Stack Development, and Data Science. I've built
-              scalable data pipelines using PySpark and Apache NiFi, and crafted
-              interactive user interfaces with React and Node.js. During my time
-              at Invesco, I led ETL migrations, automated workflows, and tackled
-              full-stack challenges to drive tech innovation. With a strong
-              foundation in data analysis and a passion for solving intricate
-              problems, I strive to create efficient, data-driven solutions that
-              enhance workflows and support impactful decision-making.
+              Hello! I&apos;m Sri Datta Y, currently pursuing a Master&apos;s in
+              Data Science at Stony Brook University. My expertise spans Data
+              Engineering, Full Stack Development, and Data Science. I&apos;ve
+              built scalable data pipelines using PySpark and Apache NiFi, and
+              crafted interactive user interfaces with React and Node.js. During
+              my time at Invesco, I led ETL migrations, automated workflows, and
+              tackled full-stack challenges to drive tech innovation. With a
+              strong foundation in data analysis and a passion for solving
+              intricate problems, I strive to create efficient, data-driven
+              solutions that enhance workflows and support impactful
+              decision-making.
             </p>
           </BoxReveal>
         </div>

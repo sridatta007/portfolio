@@ -9,6 +9,12 @@ export default {
   ],
   theme: {
     extend: {
+		zIndex: {
+			0: "0",
+			5: "5",
+			10: "10",
+			50: "50",
+		  },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

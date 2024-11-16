@@ -1,6 +1,6 @@
 "use client";
 
-import React, { PropsWithChildren, useRef } from "react";
+import React, { useRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion, useMotionValue, useSpring, useTransform, type MotionValue } from "framer-motion";
 
@@ -95,12 +95,11 @@ const DockIcon = ({
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Calculate distance between mouseX and element center
-  const distanceCalc = useTransform(mouseX, (val) => {
+  const localMouseX = useMotionValue(Infinity); // Always call the hook
+  const distanceCalc = useTransform(mouseX || localMouseX, (val: number) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
-
   // Transform width based on distance
   const widthSync = useTransform(
     distanceCalc,

@@ -168,13 +168,12 @@ const IndexPage = () => {
 
       {/* Content Below Navbar */}
       <div className="relative flex flex-col items-center justify-start pt-32 px-6">
-        {/* BoxReveal Content */}
         <div className="w-full max-w-[60%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[60%] mx-auto space-y-6">
-          {/* BoxReveal for Name */}
           <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
-            <p className="text-3xl md:text-4xl lg:text-[3.5rem] font-bold text-white">
+            {/* Updated to ensure SparklesText returns inline content */}
+            <h1 className="text-3xl md:text-4xl lg:text-[3.5rem] font-bold text-white">
               <SparklesText text="Sri Datta Y" />
-            </p>
+            </h1>
           </BoxReveal>
 
           {/* BoxReveal for Description */}

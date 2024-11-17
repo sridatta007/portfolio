@@ -15,6 +15,9 @@ import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import SparklesText from "@/components/ui/sparkles-text";
+import WorkExperience from "@/components/ui/experience";
+import EducationSection from "@/components/ui/education";
+import IconCloud from "@/components/ui/icon-cloud";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -37,19 +40,6 @@ const Icons = {
         fill="currentColor"
         d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
       />
-    </svg>
-  ),
-  youtube: (props: IconProps) => (
-    <svg
-      width="32px"
-      height="32px"
-      viewBox="0 0 32 32"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <title>youtube</title>
-      <path d="M29.41,9.26a3.5,3.5,0,0,0-2.47-2.47C24.76,6.2,16,6.2,16,6.2s-8.76,0-10.94.59A3.5,3.5,0,0,0,2.59,9.26,36.13,36.13,0,0,0,2,16a36.13,36.13,0,0,0,.59,6.74,3.5,3.5,0,0,0,2.47,2.47C7.24,25.8,16,25.8,16,25.8s8.76,0,10.94-.59a3.5,3.5,0,0,0,2.47-2.47A36.13,36.13,0,0,0,30,16,36.13,36.13,0,0,0,29.41,9.26ZM13.2,20.2V11.8L20.47,16Z" />
     </svg>
   ),
   github: (props: IconProps) => (
@@ -93,16 +83,43 @@ const DATA = {
   },
 };
 
+const slugs = [
+  "typescript",
+  "javascript",
+  "java",
+  "react",
+  "html5",
+  "css3",
+  "express",
+  "amazonaws",
+  "postgresql",
+  "firebase",
+  "vercel",
+  "docker",
+  "git",
+  "jira",
+  "github",
+  "gitlab",
+  "visualstudiocode",
+  "python",
+  "solidity",
+  "postman",
+  "c"
+];
+
 const IndexPage = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative min-h-screen w-full overflow-auto">
       {/* Meteors Background */}
       <div className="absolute inset-0 -z-10">
         <Meteors number={30} />
       </div>
 
       {/* Navbar */}
-      <div className="fixed top-0 w-full h-16 bg-opacity-80 backdrop-blur-lg bg-black/50">
+      <div
+        className="fixed top-0 w-full h-16 bg-opacity-80 backdrop-blur-lg bg-black/50 z-50"
+        style={{ boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)" }}
+      >
         <TooltipProvider>
           <Dock
             direction="middle"
@@ -168,15 +185,14 @@ const IndexPage = () => {
 
       {/* Content Below Navbar */}
       <div className="relative flex flex-col items-center justify-start pt-32 px-6">
-        <div className="w-full max-w-[60%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[60%] mx-auto space-y-6">
+        <div className="w-full max-w-[60%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[60%] mx-auto space-y-12">
+          {/* Introduction Section */}
           <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
-            {/* Updated to ensure SparklesText returns inline content */}
             <h1 className="text-3xl md:text-4xl lg:text-[3.5rem] font-bold text-white">
               <SparklesText text="Sri Datta Y" />
             </h1>
           </BoxReveal>
 
-          {/* BoxReveal for Description */}
           <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
             <p className="text-white text-lg leading-relaxed">
               Hello! I&apos;m Sri Datta Y, currently pursuing a Master&apos;s in
@@ -192,10 +208,26 @@ const IndexPage = () => {
               decision-making.
             </p>
           </BoxReveal>
+
+          {/* Work Experience Section */}
+          <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
+            <WorkExperience />
+          </BoxReveal>
+
+          {/* Education Section */}
+          <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
+            <EducationSection />
+          </BoxReveal>
+
+          {/* Skills Icon Cloud Section */}
+          <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
+            <IconCloud iconSlugs={slugs} />
+          </BoxReveal>
         </div>
       </div>
     </div>
   );
 };
+
 
 export default IndexPage;

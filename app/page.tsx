@@ -18,6 +18,8 @@ import SparklesText from "@/components/ui/sparkles-text";
 import WorkExperience from "@/components/ui/experience";
 import EducationSection from "@/components/ui/education";
 import IconCloud from "@/components/ui/icon-cloud";
+import { FaCode, FaTools, FaDatabase, FaCloud } from "react-icons/fa";
+import { MdWeb } from "react-icons/md";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -55,28 +57,27 @@ const Icons = {
 const DATA = {
   navbar: [
     { href: "#", icon: HomeIcon, label: "Home" },
-    { href: "#", icon: PencilIcon, label: "Blog" },
   ],
   contact: {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "#",
+        url: "https://github.com/sridatta007",
         icon: Icons.github,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "#",
+        url: "https://www.linkedin.com/in/datta7/",
         icon: Icons.linkedin,
       },
       X: {
         name: "X",
-        url: "#",
+        url: "https://x.com/Dat123__",
         icon: Icons.x,
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "sridattayaddanapudi@gmail.com",
         icon: Icons.email,
       },
     },
@@ -109,82 +110,14 @@ const slugs = [
 
 const IndexPage = () => {
   return (
-    <div className="relative min-h-screen w-full overflow-auto">
+    <div className="relative min-h-screen w-full overflow-hidden">
       {/* Meteors Background */}
-      <div className="absolute inset-0 -z-10">
-        <Meteors number={30} />
-      </div>
-
-      {/* Navbar */}
-      <div
-        className="fixed top-0 w-full h-16 bg-opacity-80 backdrop-blur-lg bg-black/50 z-50"
-        style={{ boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)" }}
-      >
-        <TooltipProvider>
-          <Dock
-            direction="middle"
-            className="flex justify-between items-center h-full px-6"
-          >
-            {DATA.navbar.map((item) => (
-              <DockIcon key={item.label}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={item.href}
-                      aria-label={item.label}
-                      className={cn(
-                        buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full"
-                      )}
-                    >
-                      <item.icon className="size-4" />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{item.label}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-            ))}
-            <Separator orientation="vertical" className="h-full" />
-            {Object.entries(DATA.contact.social).map(([name, social]) => (
-              <DockIcon key={name}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={social.url}
-                      aria-label={social.name}
-                      className={cn(
-                        buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full"
-                      )}
-                    >
-                      <social.icon className="size-4" />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{name}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-            ))}
-            <Separator orientation="vertical" className="h-full py-2" />
-            <DockIcon>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <ModeToggle className="rounded-full" />
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Theme</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          </Dock>
-        </TooltipProvider>
-      </div>
+      <div className="fixed inset-0 -z-10 w-full h-full min-h-screen">
+  <Meteors number={50} />
+</div>
 
       {/* Content Below Navbar */}
-      <div className="relative flex flex-col items-center justify-start pt-32 px-6">
+      <div className="relative flex flex-col items-center justify-start pt-32 px-6 min-h-screen">
         <div className="w-full max-w-[60%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[60%] mx-auto space-y-12">
           {/* Introduction Section */}
           <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
@@ -220,14 +153,121 @@ const IndexPage = () => {
           </BoxReveal>
 
           {/* Skills Icon Cloud Section */}
-          <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
-            <IconCloud iconSlugs={slugs} />
-          </BoxReveal>
+          <div className="flex flex-wrap gap-6 justify-center py-12">
+            <BoxReveal boxColor={"#FFFFFF"} duration={0.5}>
+              <div className="flex items-start gap-12 bg-gradient-to-r from-gray-800 to-gray-900 p-8 rounded-xl shadow-lg">
+                <div className="relative flex w-[300px] h-[300px] items-center justify-center overflow-hidden rounded-full border-4 border-white bg-background px-8 py-8 transition-transform transform hover:scale-105">
+                  <IconCloud iconSlugs={slugs} />
+                </div>
+                <ul className="text-white list-none space-y-4 max-w-lg">
+                  <li className="flex items-center gap-3">
+                    <FaCode className="text-xl text-blue-400" />
+                    <span>
+                      <strong>Programming Languages:</strong> Python,
+                      JavaScript, R, Solidity, C, Java
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <MdWeb className="text-xl text-green-400" />
+                    <span>
+                      <strong>Web Technologies:</strong> HTML, CSS, Bootstrap,
+                      React, NodeJS, TypeScript
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <FaTools className="text-xl text-yellow-400" />
+                    <span>
+                      <strong>Software & Tools:</strong> Git, Jira, Docker,
+                      Postman, AWS S3, Lambda, CloudWatch, MWAA (Airflow)
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <FaDatabase className="text-xl text-red-400" />
+                    <span>
+                      <strong>Databases:</strong> MySQL, MongoDB, NoSQL,
+                      Firebase
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <FaCloud className="text-xl text-purple-400" />
+                    <span>
+                      <strong>Big Data Tools:</strong> PySpark, SparkSQL, HDFS,
+                      HBase, Apache Nifi
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </BoxReveal>
+          </div>
+
+          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/70 backdrop-blur-md rounded-full px-6 py-3 shadow-lg">
+  <TooltipProvider>
+    <div className="flex items-center space-x-6">
+      {/* Navbar Icons */}
+      {DATA.navbar.map((item) => (
+        <DockIcon key={item.label}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href={item.href}
+                aria-label={item.label}
+                className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/10 transition"
+              >
+                <item.icon className="w-6 h-6 text-white" />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{item.label}</p>
+            </TooltipContent>
+          </Tooltip>
+        </DockIcon>
+      ))}
+
+      {/* Divider */}
+      <Separator orientation="vertical" className="h-6 bg-white/20" />
+
+      {/* Social Icons */}
+      {Object.entries(DATA.contact.social).map(([name, social]) => (
+        <DockIcon key={name}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href={social.url}
+                aria-label={social.name}
+                className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/10 transition"
+              >
+                <social.icon className="w-6 h-6 text-white" />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{name}</p>
+            </TooltipContent>
+          </Tooltip>
+        </DockIcon>
+      ))}
+
+      {/* Theme Toggle */}
+      <Separator orientation="vertical" className="h-6 bg-white/20" />
+      <DockIcon>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <ModeToggle className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/10 transition" />
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Theme</p>
+          </TooltipContent>
+        </Tooltip>
+      </DockIcon>
+    </div>
+  </TooltipProvider>
+</div>
+
         </div>
       </div>
     </div>
   );
 };
 
-
 export default IndexPage;
+
+

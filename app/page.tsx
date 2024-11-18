@@ -8,10 +8,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Dock, DockIcon } from "@/components/ui/dock";
+import { DockIcon } from "@/components/ui/dock";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import SparklesText from "@/components/ui/sparkles-text";

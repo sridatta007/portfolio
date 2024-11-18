@@ -1,7 +1,7 @@
 import Meteors from "@/components/ui/meteors";
 import BoxReveal from "@/components/ui/box-reveal"; // Adjust the import path as necessary
 import React from "react";
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import { CalendarIcon, HomeIcon, MailIcon } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
